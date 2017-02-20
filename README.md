@@ -12,7 +12,7 @@
 ```
 var fr = new frameRate(2000);
 ```
-2.在requestAnimationFrame()或者setInterval()的函数内加入fr.update().
+2.在requestAnimationFrame()或者setInterval()的函数内加入fr.update()。
 ```
 function animate(){
   window.requestAnimationFrame( animate );
@@ -23,11 +23,11 @@ function animate(){
 ```
 fr.getPastFrames();
 ```
-3.可以动态设置时间间隔。不过应该没法在animate()这样的函数中即时更新pastFrames
+3.可以动态设置时间间隔，不过应该没法在animate()这样的函数中即时更新pastFrames。
 ```
 fr.setInterval(3000);
 ```
-4.不过可以在重新设置时间时重新获取这段时间内的帧数，注意这里是会返回5000内的帧数，不是单位时间的;
+4.不过可以在重新设置时间时重新获取这段时间内的帧数，注意这里是会返回5000内的帧数，不是单位时间的。
 ```
 var frames = fr.setInterval(5000).getFramesInTime();
 ```
