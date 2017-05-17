@@ -80,6 +80,9 @@ foo.then(function(){
 });
 ```
 
+### 三、popop.js
+
+> 类似上一个的，传入一个数组，每秒 shift 一个值，返回一个 promise 回调，接受一下 resolve...
 
 
 
