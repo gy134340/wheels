@@ -84,6 +84,51 @@ foo.then(function(){
 
 > 类似上一个的，传入一个数组，每秒 shift 一个值，返回一个 promise 回调，接受一下 resolve...
 
+### 四、storage.js
+
+> 存储当前 dom element 的样式，在某一个时间点一起恢复初始状态的小 lib。
+
+>因为有时候 css animation 结束时已经不是最初的状态，所以需要恢复初始张台，但是写多了就会很乱。
+
+1.传入 dom 和其 style
+
+```
+var ware = new storage();
+var obj_1 = {
+	ele: document.querySelectorAll('#foo')[0],
+	style: {
+		color: '#483E2E',
+		fontSize: '24px'
+};
+var obj_2 = {
+	ele: document.querySelectorAll('#foo')[0],
+	style: {
+		color: '#EC002E',
+		fontSize: '48px'
+};
+
+ware.store(obj_1);
+ware.store(obj_2);
+
+// 或者
+var arr = [obj_1, obj_2];
+ware.push(arr);
+
+// do something here
+
+ware.restore();
+```
+
+2.ware.clear() 清空所有
+
+3.ware.getAll() 返回当前存储的元素
+
+4.ware.clear(), ware.store(), ware.push(), ware.restore() 支持链式调用
+
+```
+// 可以这样
+ware.clear().store(obj_1).restore().push(arr);
+```
 
 
 
